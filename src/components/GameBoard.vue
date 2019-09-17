@@ -1,7 +1,7 @@
 <template>
 	<div class="gameboard-wrapper">
 		<div class="gameboard">
-			<game-tile v-for="tile in tiles" :tile-config="tile"></game-tile>
+			<game-tile v-for="tile in tiles" :tile-data="tile"></game-tile>
 		</div>
 	</div>
 </template>
@@ -29,10 +29,19 @@ export default {
 			for(let t = 0; t < this.boardSettings.tiles.length; t++) {
 				const settingsTile = this.boardSettings.tiles[t];
 				const tile = {
-					left: (settingsTile.x - 1) * this.widthFactor,
-					top: (settingsTile.y - 1) * this.heightFactor,
-					width: this.widthFactor * this.boardSettings.tileWidth,
-					height: this.heightFactor * this.boardSettings.tileHeight
+					styles: {
+						left: (settingsTile.x - 1) * this.widthFactor + '%',
+						top: (settingsTile.y - 1) * this.heightFactor + '%',
+						width: this.widthFactor * this.boardSettings.tileWidth + '%',
+						height: this.heightFactor * this.boardSettings.tileHeight + '%'
+					},
+					value: null,
+					active: false,
+					dropCandidate: false,
+					canAcceptDrop: false,
+					canAcceptSplit: false,
+					isSplit: false,
+					isHovered: false
 				};
 				tiles.push(tile);
 			}

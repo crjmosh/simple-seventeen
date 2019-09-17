@@ -1,5 +1,5 @@
 <template>
-	<div class="gametile-wrapper" :style="styles">
+	<div class="gametile-wrapper" :style="tileData.styles">
 		<div class="gametile">
 			<div class="gametile-text">17</div>
 		</div>
@@ -10,12 +10,9 @@
 	export default {
 		name: 'GameTile',
 		props: {
-			tileConfig: {
+			tileData: {
 				type: Object,
 				required: true
-			},
-			value: {
-				type: Number
 			}
 		},
 		data: function() {
@@ -24,14 +21,7 @@
 			}
 		},
 		computed: {
-			styles() {
-				return {
-					width: this.tileConfig.width + '%',
-					height: this.tileConfig.height + '%',
-					left: this.tileConfig.left + '%',
-					top: this.tileConfig.top + '%'
-				}
-			}
+			
 		}
 	}
 </script>
