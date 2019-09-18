@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <game-board :board-settings="gameboard"></game-board>
+    <game-board :board-settings="gameboard" :seventeens="4"></game-board>
   </div>
 </template>
 

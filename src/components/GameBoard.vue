@@ -8,6 +8,7 @@
 
 <script>
 import GameTile from './GameTile.vue'
+import generateTileNumbers from './mixins/generateTileNumbers.js'
 
 export default {
 	name: 'GameBoard',
@@ -15,6 +16,19 @@ export default {
 		boardSettings: {
 			type: Object,
 			required: true
+		},
+		seventeens: {
+			type: Number,
+			required: true
+		}
+	},
+	mixins: [generateTileNumbers],
+	components: {
+		GameTile
+	},
+	data: function() {
+		return {
+			tileValues: []
 		}
 	},
 	computed: {
@@ -36,7 +50,7 @@ export default {
 						height: this.heightFactor * this.boardSettings.tileHeight + '%',
 						fontSize: this.widthFactor * this.boardSettings.tileWidth / 20 + 1 + 'rem'
 					},
-					value: null,
+					value: this.tileValues[t],
 					active: false,
 					dropCandidate: false,
 					canAcceptDrop: false,
@@ -55,8 +69,8 @@ export default {
 			return this.heightFactor * this.boardSettings.tileHeight
 		},
 	},
-	components: {
-		GameTile
+	mounted: function() {
+		this.tileValues = this.$_generateTileNumbers(this.seventeens, this.boardSettings.tiles.length)
 	}
 }
 </script>
@@ -68,7 +82,6 @@ export default {
 	padding: 15px;
 	width: 600px;
 	max-width: 100%;
-	padding-bottom: 35%;
 	user-select: none;
 }
 .gameboard {

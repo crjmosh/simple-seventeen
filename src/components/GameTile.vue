@@ -1,7 +1,7 @@
 <template>
 	<div class="gametile-wrapper" :style="tileData.styles">
-		<div class="gametile">
-			<div class="gametile-text">17</div>
+		<div class="gametile" :class="tileClasses">
+			<div class="gametile-text">{{ value }}</div>
 		</div>
 	</div>
 </template>
@@ -21,7 +21,15 @@
 			}
 		},
 		computed: {
-			
+			value: function() {
+				return this.tileData.value || 0;
+			},
+			tileClasses: function() {
+				return {
+					active: false,
+					empty: this.value <= 0
+				}
+			}
 		}
 	}
 </script>
@@ -33,6 +41,17 @@
 		left: 0;
 		width: 25%;
 		height: 25%;
+	}
+	.gametile-wrapper:before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background-color: rgba(0,0,0,0.15);
+		border-radius: 10px;
+		width: 90%;
+		height: 90%;
 	}
 	.gametile {
 		position: absolute;
@@ -52,5 +71,11 @@
 		color: #f0f0f0;
 		font-weight: bold;
 		line-height: 1;
+	}
+	.gametile.active {
+		opacity: 0.4;
+	}
+	.gametile.empty {
+		opacity: 0;
 	}
 </style>
