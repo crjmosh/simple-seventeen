@@ -1,4 +1,8 @@
-# simple-seventeen
+# Simple Seventeen
+
+Simple Seventeen is a puzzle game where you combine tiles in an attempt to clear the board and complete the round. This is a simplified web version of my game Seventeen which is currently available for free on Android devices from the [Google Play Store](https://play.google.com/store/apps/details?id=com.redmoshgames.seventeen).
+
+This is a work in progress. Feel free to dive in and see how it all works!
 
 ## Project setup
 ```
@@ -14,16 +18,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
