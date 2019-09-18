@@ -49,8 +49,8 @@
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
-		font-size: 2.2rem;
-		font-weight: bold;
 		color: #f0f0f0;
+		font-weight: bold;
+		line-height: 1;
 	}
 </style>

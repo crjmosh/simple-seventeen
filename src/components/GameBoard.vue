@@ -33,7 +33,8 @@ export default {
 						left: (settingsTile.x - 1) * this.widthFactor + '%',
 						top: (settingsTile.y - 1) * this.heightFactor + '%',
 						width: this.widthFactor * this.boardSettings.tileWidth + '%',
-						height: this.heightFactor * this.boardSettings.tileHeight + '%'
+						height: this.heightFactor * this.boardSettings.tileHeight + '%',
+						fontSize: this.widthFactor * this.boardSettings.tileWidth / 20 + 1 + 'rem'
 					},
 					value: null,
 					active: false,
