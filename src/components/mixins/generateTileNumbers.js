@@ -54,8 +54,10 @@ function getTileNumbers(groups) {
 		var remaining = 17 - (base * (groupNums.length));
 		for(var gn = 0; gn < groupNums.length; gn++) {
 			var change = Math.floor(Math.random() * (maxDiff + 1));
-			groupNums[gn] -= change;
-			remaining += change;
+			if(groupNums[gn] - change > 0) {
+				groupNums[gn] -= change;
+				remaining += change;
+			}
 		};
 		distributeRemainingNumbers();
 		numbers = numbers.concat(groupNums);
@@ -71,10 +73,13 @@ function getTileNumbers(groups) {
 }
 
 function shuffleArray(arr) {
-	var random = arr.map(Math.random);
-	arr.sort(function(a, b) {
-		return random[a] - random[b];
-	});
+	var m = arr.length, t, i;
+	while (m) {
+		i = Math.floor(Math.random() * m--);
+		t = arr[m];
+		arr[m] = arr[i];
+		arr[i] = t;
+	}
 }
 
 export default generateTileNumbers
